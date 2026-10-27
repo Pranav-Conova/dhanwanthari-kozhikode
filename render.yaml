@@ -1,0 +1,34 @@
+# Render Blueprint: deploys public/ as a free static site.
+# Render → New → Blueprint → pick this repo → Apply.
+services:
+  - type: web
+    name: dhanwanthari-kozhikode
+    runtime: static
+    buildCommand: echo "Static site, no build step"
+    staticPublishPath: ./public
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      # Demo site: keep it out of search results until the hospital signs off. Delete at launch.
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex, nofollow
+      - path: /assets/img/*
+        name: Cache-Control
+        value: public, max-age=2592000
+      - path: /assets/video/*
+        name: Cache-Control
+        value: public, max-age=2592000
+      - path: /assets/css/*
+        name: Cache-Control
+        value: public, max-age=3600
+      - path: /assets/js/*
+        name: Cache-Control
+        value: public, max-age=3600
