@@ -55,3 +55,5 @@ Every push to `main` redeploys design A; every push to `concept-b` redeploys des
 - [ ] **Link previews:** set `og:image` in `index.html` to the full URL, e.g. `https://<your-site>.onrender.com/assets/og-image.jpg`.
 - [ ] **Custom domain:** add it in Render → Settings → Custom Domains.
 - [ ] **Credits:** remove the stand-in photo and film credits from the footer once they're replaced.
+- [ ] **Google reviews:** the page shows the Google rating as checked on 27 Oct 2026 (4.8 from 16 reviews). To show real review cards, put a Google Maps Platform API key (Maps JavaScript API + Places API (New), restricted to the site's address) in `assets/js/reviews.js`, or paste real reviews word for word into `manualReviews` there. Never write reviews by hand.
+- [ ] **Map:** the embed searches for the hospital by name. If the hospital sends its Google Maps link, swap the `q=` value in the map `iframe` for its exact place.
