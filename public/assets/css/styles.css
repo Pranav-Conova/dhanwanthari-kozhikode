@@ -219,10 +219,15 @@ em { font-style: italic; }
   .hero-top-r { width: 100%; justify-content: space-between; }
   .statement, .sec-head, .story-head, .medicines, .visit-inner, .foot-cols { grid-template-columns: 1fr; }
   .sec-head p:last-child { grid-column: 1; }
-  .trow { grid-template-columns: 72px minmax(0, 1fr); gap: 6px 16px; padding: 22px 0; }
-  .t-thumb { display: block; grid-row: 1 / span 3; width: 72px; aspect-ratio: 4 / 5; border-radius: 999px 999px 6px 6px; overflow: hidden; }
+  /* Phone rows: thumbnail beside the name, description and tags full width below.
+     align-items: start replaces the desktop baseline alignment, which pushed names down to the thumbnail's bottom edge. */
+  .trow { grid-template-columns: 64px minmax(0, 1fr); align-items: start; gap: 4px 16px; padding: 22px 0; }
+  .t-thumb { display: block; grid-column: 1; grid-row: 1 / span 2; align-self: center; width: 64px; aspect-ratio: 4 / 5; border-radius: 999px 999px 6px 6px; overflow: hidden; }
   .t-thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .t-name, .t-ml, .t-desc, .t-for { grid-column: 2; }
+  .t-name { grid-column: 2; grid-row: 1; align-self: end; font-size: 2.1rem; }
+  .t-ml { grid-column: 2; grid-row: 2; align-self: start; }
+  .t-desc, .t-for { grid-column: 1 / -1; }
+  .t-desc { margin-top: 12px; max-width: none; }
   .story-track { flex-direction: column; width: auto; gap: 48px; }
   .chap, .story-head { width: 100%; }
   .story-head p:last-child { display: none; }

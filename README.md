@@ -1,6 +1,8 @@
-# Dhanwanthari Ayurveda Hospital, Kozhikode — demo website
+# Dhanwanthari Ayurveda Hospital, Kozhikode — demo website (design A, Vaidyasala)
 
-A one-page static site: plain HTML, CSS and JavaScript with GSAP animations. No build step.
+This is the `main` branch: design A, palm-leaf and brass with a herbal-compress film behind the headline.
+The `concept-b` branch holds design B (Dhara), the dark oil-lamp design. Each branch is its own
+one-page static site: plain HTML, CSS and JavaScript with GSAP animations, no build step.
 Everything that gets published lives in `public/`.
 
 ```
@@ -14,7 +16,7 @@ public/
   assets/img/           stand-in photos (Wikimedia Commons, credited in the footer)
   assets/video/         stand-in hero film (Pexels) + poster frame
   assets/og-image.jpg   link preview image for WhatsApp, Facebook, etc.
-render.yaml             Render Blueprint (static site, headers)
+render.yaml             Render Blueprint for BOTH sites (identical on both branches)
 ```
 
 ## Preview locally
@@ -25,28 +27,22 @@ python -m http.server 8000 --directory public
 
 Then open http://localhost:8000. Opening `public/index.html` directly also works, apart from the 404 page.
 
-## Deploy on Render
+## Hosting on Render
 
-1. Create an empty repository on GitHub (no README), for example `dhanwanthari-kozhikode`.
-2. From this `site` folder:
+`render.yaml` defines two static sites from this one repository
+(https://github.com/Pranav-Conova/dhanwanthari-kozhikode):
 
-   ```
-   git init
-   git add .
-   git commit -m "Dhanwanthari Kozhikode demo site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/dhanwanthari-kozhikode.git
-   git push -u origin main
-   ```
+| Branch | Render service | Design |
+|---|---|---|
+| `main` | `dhanwanthari-kozhikode` | A, Vaidyasala |
+| `concept-b` | `dhanwanthari-kozhikode-dhara` | B, Dhara |
 
-3. In Render: **New → Blueprint**, connect GitHub, pick the repository, then **Apply**.
-   Render reads `render.yaml` and creates a free static site at `https://dhanwanthari-kozhikode.onrender.com`
-   (Render adds a suffix if that name is taken).
+- **Blueprint not applied yet:** Render → **New → Blueprint** → pick this repo (branch `main`) → **Apply**. Both sites are created.
+- **Blueprint already applied:** Render syncs `render.yaml` from `main` after each push and creates the new site. If it doesn't, open the Blueprint and click **Manual Sync**.
+- **Without a Blueprint:** Render → **New → Static Site** → this repo → pick the branch, leave **Build Command** empty, **Publish Directory** `public`.
 
-   Without the Blueprint: **New → Static Site**, pick the repository, leave **Build Command** empty
-   and set **Publish Directory** to `public`.
-
-Every push to `main` redeploys automatically.
+Render adds a suffix to the `.onrender.com` address if a name is taken.
+Every push to `main` redeploys design A; every push to `concept-b` redeploys design B.
 
 ## Before it goes live for real
 
