@@ -3,6 +3,8 @@
 #   concept-b → dhanwanthari-kozhikode-dhara  (design B, Dhara)
 # Render → New → Blueprint → pick this repo (branch main) → Apply.
 # Keep this file identical on both branches.
+# No Cache-Control overrides on purpose: Render's default (max-age=0 with an ETag) makes browsers
+# check every file on each visit, so a push shows up at once instead of mixing new HTML with old CSS.
 services:
   - type: web
     name: dhanwanthari-kozhikode
@@ -24,18 +26,6 @@ services:
       - path: /*
         name: X-Robots-Tag
         value: noindex, nofollow
-      - path: /assets/img/*
-        name: Cache-Control
-        value: public, max-age=2592000
-      - path: /assets/video/*
-        name: Cache-Control
-        value: public, max-age=2592000
-      - path: /assets/css/*
-        name: Cache-Control
-        value: public, max-age=3600
-      - path: /assets/js/*
-        name: Cache-Control
-        value: public, max-age=3600
 
   - type: web
     name: dhanwanthari-kozhikode-dhara
@@ -57,15 +47,3 @@ services:
       - path: /*
         name: X-Robots-Tag
         value: noindex, nofollow
-      - path: /assets/img/*
-        name: Cache-Control
-        value: public, max-age=2592000
-      - path: /assets/video/*
-        name: Cache-Control
-        value: public, max-age=2592000
-      - path: /assets/css/*
-        name: Cache-Control
-        value: public, max-age=3600
-      - path: /assets/js/*
-        name: Cache-Control
-        value: public, max-age=3600
