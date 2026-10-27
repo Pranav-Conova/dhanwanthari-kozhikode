@@ -179,6 +179,28 @@
     </div>
   </section>
 
+  <!-- Patient reviews. Real Google reviews only: assets/js/reviews.js adds review cards once an API key is set. -->
+  <section class="reviews" id="reviews" aria-labelledby="reviews-title" data-google-reviews>
+    <div class="rev-head">
+      <p class="eyebrow">Patient reviews</p>
+      <h2 id="reviews-title">Trusted by the people <em>we've cared for.</em></h2>
+      <!-- Google rating as checked on 27 Oct 2026. reviews.js replaces it with the live figure when an API key is set. -->
+      <div class="rev-summary" data-rev-summary>
+        <span class="rev-score" data-rev-score>4.8</span>
+        <span class="rev-meta"><span class="rev-stars" data-rev-stars aria-hidden="true">★★★★★</span><span data-rev-count>16 reviews on Google</span></span>
+      </div>
+    </div>
+    <div class="rev-side">
+      <p class="rev-note">Patients review Dhanwanthari Ayurveda Hospital on Google Maps. Read what they say before you book, or share your own experience after your stay.</p>
+      <div class="rev-ctas">
+        <a class="btn-gold" data-rev-link href="https://www.google.com/maps/search/?api=1&amp;query=Dhanwanthari+Ayurveda+Hospital+Chalappuram+Kozhikode" target="_blank" rel="noopener">Read reviews on Google</a>
+        <a class="btn-line" data-rev-write href="https://www.google.com/maps/search/?api=1&amp;query=Dhanwanthari+Ayurveda+Hospital+Chalappuram+Kozhikode" target="_blank" rel="noopener">Write a review</a>
+      </div>
+    </div>
+    <ul class="rev-list" data-rev-list hidden></ul>
+    <p class="rev-attrib" data-rev-attrib hidden>Rating and reviews from Google.</p>
+  </section>
+
   <!-- 6 · Visit -->
   <section class="visit" id="visit" aria-labelledby="visit-title">
     <div class="visit-bg" aria-hidden="true"><img class="graded" src="assets/img/kozhikode-beach.webp" alt="" data-speed="auto" loading="lazy"></div>
@@ -209,6 +231,14 @@
         </address>
       </div>
     </div>
+    <div class="visit-map">
+      <!-- Keyless Google Maps embed. Once the hospital shares its Maps link, swap q= for its exact place. -->
+      <iframe title="Map: Dhanwanthari Ayurveda Hospital, Chalappuram, Kozhikode" src="https://maps.google.com/maps?q=Dhanwanthari%20Ayurveda%20Hospital%2C%20Chalappuram%2C%20Kozhikode&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="map-links">
+        <a class="btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Dhanwanthari+Ayurveda+Hospital+Chalappuram+Kozhikode" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Dhanwanthari+Ayurveda+Hospital+Chalappuram+Kozhikode" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+    </div>
   </section>
 
 </main>
@@ -231,5 +261,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/reviews.js" defer></script>
 </body>
 </html>

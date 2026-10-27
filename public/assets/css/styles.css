@@ -216,6 +216,27 @@ p { margin: 0; }
 .crop-lamps img { object-position: 72% 45%; }
 .crop-head img { object-position: 50% 28%; }
 
+/* Patient reviews: two columns while it only links out; a full-width row of cards once real reviews load */
+.reviews { border-top: 1px solid var(--line); padding: clamp(96px, 12vw, 170px) var(--pad-r) clamp(80px, 10vw, 140px) var(--pad-l); display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: end; gap: 56px 80px; }
+.rev-head h2 { font-size: var(--fs-h2); line-height: .95; letter-spacing: -.015em; margin: 18px 0 32px; }
+.rev-summary { display: flex; align-items: center; gap: 20px; }
+.rev-summary[hidden] { display: none; }
+.rev-score { font-family: var(--f-display); font-size: clamp(4rem, 7vw, 6.5rem); line-height: .85; color: var(--gold); }
+.rev-meta { display: grid; gap: 4px; font-size: 14px; color: var(--ivory-2); }
+.rev-stars, .rev-card-stars { color: var(--gold); letter-spacing: .14em; margin: 0; }
+.rev-side { display: grid; gap: 28px; }
+.rev-note { color: var(--ivory-2); max-width: 40ch; }
+.rev-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.rev-list { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.rev-list[hidden] { display: none; }
+.rev-card { background: var(--night-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; display: grid; gap: 16px; align-content: start; }
+.rev-text { margin: 0; font-family: var(--f-display); font-style: italic; font-size: clamp(1.3rem, 1.7vw, 1.55rem); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden; }
+.rev-by { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; color: var(--ivory-2); margin: 0; }
+.rev-avatar { width: 32px; height: 32px; border-radius: 50%; }
+.rev-name { color: var(--ivory); font-weight: 500; text-decoration: none; }
+.rev-when { color: var(--smoke); }
+.rev-attrib { grid-column: 1 / -1; font-size: 12px; color: var(--smoke); margin-top: -32px; }
+
 /* 6 · Visit */
 .visit { position: relative; isolation: isolate; overflow: hidden; min-height: min(100vh, 1000px); display: grid; align-items: end; padding: clamp(120px, 16vw, 220px) var(--pad-r) clamp(56px, 8vw, 110px) var(--pad-l); }
 .visit-bg { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
@@ -241,6 +262,10 @@ p { margin: 0; }
 .contact strong { font-family: var(--f-display); font-weight: 400; font-size: 1.8rem; color: var(--ivory); margin-bottom: 6px; }
 .contact a { color: var(--gold); text-decoration: none; }
 .contact a:hover { text-decoration: underline; }
+.visit-map { margin-top: clamp(56px, 8vw, 110px); display: grid; gap: 18px; }
+.visit-map iframe { display: block; width: 100%; height: clamp(320px, 50vh, 520px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--night-2);
+  filter: invert(.9) hue-rotate(180deg) saturate(.55) brightness(.95) contrast(.92); } /* dark map to sit in the night palette */
+.map-links { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* 7 · Footer */
 .site-footer { position: relative; overflow: hidden; border-top: 1px solid var(--line); padding: clamp(56px, 8vw, 96px) var(--pad-r) max(40px, env(safe-area-inset-bottom, 0px)) var(--pad-l); }
@@ -283,6 +308,10 @@ p { margin: 0; }
   .g-media img { width: 100%; margin-left: 0; }
   .visit { min-height: 0; }
   .visit-inner { grid-template-columns: 1fr; }
+  .reviews { grid-template-columns: 1fr; gap: 32px; }
+  .rev-head h2 { margin-bottom: 24px; }
+  .rev-card { padding: 24px; }
+  .visit-map iframe { height: 360px; }
   .magnetic { width: auto; height: auto; border-radius: 999px; padding: 16px 26px; }
   .magnetic-label { grid-auto-flow: column; align-items: center; }
 }
