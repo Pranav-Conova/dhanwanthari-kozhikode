@@ -181,12 +181,38 @@ em { font-style: italic; }
 .sprig { position: absolute; left: -16%; bottom: -8%; width: 58%; height: auto; overflow: visible; }
 .sprig path { fill: none; stroke: var(--brass); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
+/* Reviews: two columns while it only links out; a full-width row of cards once real reviews load */
+.reviews { background: var(--leaf-2); padding: 16vh var(--gutter-r) 16vh var(--gutter-l); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 6vh 6vw; align-items: end; }
+.rev-head { display: grid; gap: 22px; }
+.rev-head h2 { font-size: clamp(2.6rem, 6vw, 6.2rem); line-height: .92; }
+.rev-head h2 em { color: var(--brass); }
+.rev-summary { display: flex; align-items: center; gap: 18px; }
+.rev-summary[hidden] { display: none; }
+.rev-score { font: 500 clamp(3.6rem, 6vw, 5.6rem)/.9 var(--f-display); letter-spacing: -.02em; }
+.rev-meta { display: grid; gap: 4px; font-size: 14px; color: var(--ink-2); }
+.rev-stars, .rev-card-stars { color: var(--brass); letter-spacing: .14em; margin: 0; }
+.rev-side { display: grid; gap: 26px; align-content: end; }
+.rev-note { color: var(--ink-2); max-width: 42ch; font-size: 1.05rem; }
+.rev-ctas { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.rev-list { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.rev-list[hidden] { display: none; }
+.rev-card { background: var(--leaf); border-radius: 14px; padding: 28px 30px; display: grid; gap: 16px; align-content: start; }
+.rev-text { margin: 0; font: italic 400 clamp(1.25rem, 1.6vw, 1.5rem)/1.35 var(--f-display); display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden; }
+.rev-by { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; margin: 0; }
+.rev-avatar { width: 32px; height: 32px; border-radius: 50%; }
+.rev-name { font-weight: 600; text-decoration: none; }
+.rev-when { color: var(--ink-2); }
+.rev-attrib { grid-column: 1 / -1; font-size: 12px; color: var(--ink-2); margin-top: -2vh; }
+
 /* Visit */
 .visit { position: relative; color: var(--leaf); background: var(--ink); overflow: hidden; }
 .visit-media { position: absolute; inset: 0; margin: 0; }
 .visit-media img { width: 100%; height: 120%; object-fit: cover; opacity: .55; }
 .visit-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(20,15,8,.92) 20%, rgba(20,15,8,.35)); }
-.visit-inner { position: relative; padding: 22vh var(--gutter-r) 18vh var(--gutter-l); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 6vw; align-items: end; }
+.visit-inner { position: relative; padding: 22vh var(--gutter-r) 8vh var(--gutter-l); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 6vw; align-items: end; }
+.visit-map { position: relative; padding: 0 var(--gutter-r) 16vh var(--gutter-l); display: grid; gap: 14px; }
+.visit-map iframe { display: block; width: 100%; height: clamp(320px, 50vh, 520px); border: 0; border-radius: 14px; background: var(--ink-2); filter: sepia(.3) saturate(.8) contrast(1.03); }
+.map-links { display: flex; gap: 8px 32px; flex-wrap: wrap; }
 .visit h2 { font-size: clamp(2.8rem, 7vw, 7.5rem); line-height: .9; }
 .visit h2 em { color: var(--brass-2); }
 .visit-card { display: grid; gap: 28px; }
@@ -217,7 +243,10 @@ em { font-style: italic; }
   .hero-title .l2 { padding-left: 0; }
   .hero-video { object-position: 62% 50%; }
   .hero-top-r { width: 100%; justify-content: space-between; }
-  .statement, .sec-head, .story-head, .medicines, .visit-inner, .foot-cols { grid-template-columns: 1fr; }
+  .statement, .sec-head, .story-head, .medicines, .visit-inner, .foot-cols, .reviews { grid-template-columns: 1fr; }
+  .reviews { padding-block: 12vh; gap: 28px; }
+  .rev-card { padding: 24px; }
+  .visit-map iframe { height: 360px; }
   .sec-head p:last-child { grid-column: 1; }
   /* Phone rows: thumbnail beside the name, description and tags full width below.
      align-items: start replaces the desktop baseline alignment, which pushed names down to the thumbnail's bottom edge. */
